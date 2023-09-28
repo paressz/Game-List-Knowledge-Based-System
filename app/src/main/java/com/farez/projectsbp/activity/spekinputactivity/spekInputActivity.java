@@ -1,4 +1,4 @@
-package com.farez.projectsbp.activity;
+package com.farez.projectsbp.activity.spekinputactivity;
 
 import androidx.appcompat.app.AppCompatActivity;
 

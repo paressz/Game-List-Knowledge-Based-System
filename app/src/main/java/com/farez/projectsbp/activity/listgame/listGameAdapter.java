@@ -9,14 +9,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.farez.projectsbp.activity.detailgameactivity.DetailGameActivity;
 import com.farez.projectsbp.data.model.Game;
 import com.farez.projectsbp.databinding.RvItemGameBinding;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class listGameAdapter extends RecyclerView.Adapter<listGameAdapter.GameViewHolder> {
-    List<Game> gameList;
+    List<Game> gameList = new ArrayList<Game>();
 
     @NonNull
     @Override
@@ -31,9 +34,10 @@ public class listGameAdapter extends RecyclerView.Adapter<listGameAdapter.GameVi
         Game game = gameList.get(position);
         RvItemGameBinding binding = holder.binding;
         Glide.with(holder.itemView.getContext())
-                .load(game.imageUrl)
-                .into(binding.imageView);
-        binding.textView.setText(game.nama);
+                .load(game.getImageUrl())
+                .transform(new RoundedCorners(16))
+                .into(binding.ivGameImage);
+        binding.tvGameName.setText(game.getNama());
         holder.itemView.setOnClickListener(it -> {
             Intent intent = new Intent(it.getContext(), DetailGameActivity.class);
             intent.putExtra("GAME", game);
@@ -50,6 +54,7 @@ public class listGameAdapter extends RecyclerView.Adapter<listGameAdapter.GameVi
         RvItemGameBinding binding;
         public GameViewHolder(RvItemGameBinding binding) {
             super(binding.getRoot());
+            this.binding = binding;
         }
     }
 

@@ -1,4 +1,22 @@
 <resources>
     <string name="app_name">ProjectSbp</string>
     <string name="cari_game">Mulai Nyari Game</string>
+    <string name="nama_game">Ceritanya Nama Game</string>
+    <string name="tentang_game">Tentang Game Ini</string>
+    <string name="spesifikasi_game">Spesifikasi Minimum</string>
+    <string name="cpu_type_text">Intel Core i15 99999x or AMD Ryzen 19 231122x</string>
+    <string name="ram_cap_text">64 GB</string>
+    <string name="gpu_type_text">RTX 9080 TI</string>
+    <string name="hdd_space_text">10 TB free space</string>
+    <string name="cpu_text">CPU</string>
+    <string name="ram_text">RAM</string>
+    <string name="gpu_text">GPU/VGA</string>
+    <string name="hdd_text">Storage</string>
+
+
+    <string name="sample_deskripsi">
+        LOREPM IMPOSUM KSSOIRA QWHENQ AOBFOASJFPASNF ANSCKASNCASNC ANNSLCASIHCAOSH ASLCSKNCLASKCNA XBCZJXBC ASHdAHSI isdoashdao OASyd ashda
+        DASTDAUD(#  AISDGAISD Q@EQD AIGSDAISDG AS SDGASKDGgasiudag aisdga AIS SDGAaksdg adsaiusd ad ajsdakshd asd ad asd asdadasjhd sd9st dat 8std 9sa
+        (ASD S (SDYD sudg ais IAD aa99  sd A0sdyas hd
+    </string>
 </resources>
