@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 
 import com.farez.projectsbp.R;
-import com.farez.projectsbp.activity.listgame.listGameActivity;
-import com.farez.projectsbp.activity.spekinputactivity.spekInputActivity;
+import com.farez.projectsbp.activity.listgame.ListGameActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button btnCariGame;
@@ -19,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnCariGame = findViewById(R.id.button);
         btnCariGame.setOnClickListener( view -> {
-            Intent intent = new Intent(this, listGameActivity.class);
+            Intent intent = new Intent(this, ListGameActivity.class);
             startActivity(intent);
         });
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#96F8F0"
-    tools:context=".activity.listgame.listGameActivity">
+    tools:context=".activity.listgame.ListGameActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

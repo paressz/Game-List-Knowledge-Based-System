@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(tableName = "games")
+@Entity
 public class Game implements Serializable {
     @ColumnInfo(name = "nama")
     String nama;
@@ -27,6 +27,14 @@ public class Game implements Serializable {
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
     int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     @ColumnInfo(name = "isGameDewasa")
     boolean isGameDewasa;
