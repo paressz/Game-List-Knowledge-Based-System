@@ -9,11 +9,14 @@ import android.os.Bundle;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
-import com.farez.projectsbp.activity.loginactivity.MainActivity;
 import com.farez.projectsbp.data.model.Game;
 import com.farez.projectsbp.databinding.ActivityListGameBinding;
+import com.farez.projectsbp.util.KeyUtil;
 
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ListGameActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
@@ -22,6 +25,7 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
     ActivityListGameBinding binding;
     List<Game> gameList, filteredList;
     ListGameViewModel viewModel;
+    Map<String, String> keywordSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +38,7 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 .create(ListGameViewModel.class
                 );
         rv = binding.rv;
-        getGames();
+        getGamesFromDatabase();
         listGameAdapter = new ListGameAdapter();
         rv.setAdapter(listGameAdapter);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
@@ -44,28 +48,51 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
 
     }
 
-    void getGames() {
+    void getGamesFromDatabase() {
         viewModel.getGame().observe(this, games -> {
             if (games != null) {
                 gameList = games;
-                listGameAdapter.setGameList(gameList);
-            }
-            else {
-                Toast.makeText(this, "ERROR : list game null", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onCheckedChanged(CompoundButton compoundButton, boolean value) {
-        if (compoundButton.getId() == binding.switch1.getId()) {
-            if (value) {
-                filteredList = gameList.stream().filter(game -> game.isGameDewasa() || !game.isGameDewasa()).collect(Collectors.toList());
-                listGameAdapter.setGameList(filteredList);
-            } else {
+                handleSearch();
                 filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
                 listGameAdapter.setGameList(filteredList);
             }
+            else {
+                Toast.makeText(this, "ERROR : list game bernilai null", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    //Fungsi buat handle kalo switch 18+ diganti
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean value) {
+        if (compoundButton.getId() == binding.switch1.getId()) {
+            handleSwitch(value);
         }
+    }
+    void handleSwitch(boolean value) {
+        if (value) {
+            filteredList = gameList;
+            listGameAdapter.setGameList(filteredList);
+        } else {
+            filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
+            listGameAdapter.setGameList(filteredList);
+        }
+    }
+// method buat handle search berdasarkan
+// data cpu, ram, hdd, dan vga
+// yang diinput dari spekInputActivity
+    void handleSearch() {
+        Serializable spekData = getIntent().getSerializableExtra(KeyUtil.KEY_INTENT_SPEK);
+        if (spekData != null) {
+            keywordSearch = (HashMap<String, String>) spekData;
+        } else  {
+            Toast.makeText(this, "DATA SPEK TIDAK ADA", Toast.LENGTH_SHORT).show();
+        }
+        gameList = gameList
+                .stream()
+                .filter(
+                game ->
+                        game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
+                )
+                .collect(Collectors.toList());
     }
 }

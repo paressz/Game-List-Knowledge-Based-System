@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.farez.projectsbp.R;
 import com.farez.projectsbp.activity.detailgameactivity.DetailGameActivity;
 import com.farez.projectsbp.data.model.Game;
 import com.farez.projectsbp.databinding.RvItemGameBinding;
+import com.farez.projectsbp.util.KeyUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +36,14 @@ public class ListGameAdapter extends RecyclerView.Adapter<ListGameAdapter.GameVi
         RvItemGameBinding binding = holder.binding;
         Glide.with(holder.itemView.getContext())
                 .load(game.getImageUrl())
-                .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                .placeholder(R.drawable.no_image)
+                .transform(new RoundedCorners(12))
                 .into(binding.ivGameImage);
         binding.tvGameName.setText(game.getNama());
-        holder.itemView.setOnClickListener(it -> {
-            Intent intent = new Intent(it.getContext(), DetailGameActivity.class);
-            intent.putExtra("GAME", game);
-            it.getContext().startActivity(intent);
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(view.getContext(), DetailGameActivity.class);
+            intent.putExtra(KeyUtil.KEY_GAME_INTENT, game);
+            view.getContext().startActivity(intent);
         });
     }
 
