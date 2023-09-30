@@ -36,16 +36,17 @@ public class SpekInputActivity extends AppCompatActivity {
             String cpu = binding.edCpu.getText().toString();
             // TODO : LANJUTIN BUAT AMBIL INPUTAN YANG LAIN...
             //LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
+
             spekData.put(KeyUtil.KEY_CPU, cpu);
             // TODO : LANJUTIN...
 
             //TODO GANTI PARAMETER SUPAYA NERIMA RAM, HDD, VGA
-            checkIsNullOrEmpty(cpu, cpu, cpu, cpu);
+            checkEmptyField(cpu, cpu, cpu, cpu);
         }
     }
 
-    void checkIsNullOrEmpty(String cpu, String ram, String hdd, String vga) {
-        if (cpu.isEmpty() ) {
+    void checkEmptyField(String cpu, String ram, String hdd, String vga) {
+        if (cpu.isEmpty() || ram.isEmpty() || hdd.isEmpty() || vga.isEmpty() ) {
             Toast.makeText(this, "Semua bagian harus diisi", Toast.LENGTH_SHORT).show();
         } else {
             Intent intent = new Intent(this, ListGameActivity.class);
