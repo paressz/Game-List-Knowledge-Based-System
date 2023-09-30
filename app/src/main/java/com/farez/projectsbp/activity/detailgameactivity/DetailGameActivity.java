@@ -16,24 +16,31 @@ import com.farez.projectsbp.util.KeyUtil;
 public class DetailGameActivity extends AppCompatActivity {
     Game game;
     ActivityDetailGameBinding binding;
-
-    //TODO : terima data game dari activity list game terus tampilin datanya ke view/komponen yang udah ada
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupBinding();
-        getDataFromListGameActivity();
-
     }
 
     private void setupBinding() {
         binding = ActivityDetailGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getDataFromListGameActivity();
     }
 
     private void getDataFromListGameActivity() {
+        //BUAT TERIMA DATA YANG KEY-NYA DARI KeyUtil.KEY_GAME_INTENT
         game = (Game) getIntent().getSerializableExtra(KeyUtil.KEY_GAME_INTENT);
+
+        /*
+        TODO : LANJUT TAMPILIN SISA DATA YANG BELOM DITAMPILIN
+        LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
+         */
         binding.tvNamaGame.setText(game.getNama());
+        //...
+        //...
+        //...
+
         //INI BUAT LOAD IMAGE DARI URL KE IMAGEVIEW
         Glide.with(this)
                 .load(game.getImageUrl())

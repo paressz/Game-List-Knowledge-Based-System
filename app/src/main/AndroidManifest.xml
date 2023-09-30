@@ -24,7 +24,7 @@
             android:name=".activity.spekinputactivity.SpekInputActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.loginactivity.MainActivity"
+            android:name=".activity.loginactivity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

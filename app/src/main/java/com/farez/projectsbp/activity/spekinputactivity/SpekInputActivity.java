@@ -34,13 +34,13 @@ public class SpekInputActivity extends AppCompatActivity {
     public void onClick(View view) {
         if(view.getId() == binding.btnCariGame.getId()) {
             String cpu = binding.edCpu.getText().toString();
-            // TODO : LANJUTIN BUAT INPUT YANG LAIN...
+            // TODO : LANJUTIN BUAT AMBIL INPUTAN YANG LAIN...
+            //LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
             spekData.put(KeyUtil.KEY_CPU, cpu);
             // TODO : LANJUTIN...
 
-            //TODO LANJUT TAMBAHIN FUNGSI BUAT PINDAH KE ACTIVITY LIST GAME
+            //TODO GANTI PARAMETER SUPAYA NERIMA RAM, HDD, VGA
             checkIsNullOrEmpty(cpu, cpu, cpu, cpu);
-            Log.d("TAG", "onClick: " + cpu);
         }
     }
 

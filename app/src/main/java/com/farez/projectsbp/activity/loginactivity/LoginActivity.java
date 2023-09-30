@@ -9,12 +9,12 @@ import android.widget.Button;
 import com.farez.projectsbp.R;
 import com.farez.projectsbp.activity.spekinputactivity.SpekInputActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     Button btnCariGame;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         btnCariGame = findViewById(R.id.button);
         btnCariGame.setOnClickListener( view -> {
