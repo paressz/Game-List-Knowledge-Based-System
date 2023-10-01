@@ -15,9 +15,9 @@ public class Game implements Serializable {
     @ColumnInfo(name = "cpu")
     String cpu;
     @ColumnInfo(name = "ram")
-    String ram;
+    int ram;
     @ColumnInfo(name = "hdd")
-    String hdd;
+    int hdd;
     @ColumnInfo(name = "vga")
     String vga;
     @ColumnInfo(name = "deskripsi")
@@ -40,7 +40,7 @@ public class Game implements Serializable {
     boolean isGameDewasa;
 
 
-    public Game(String nama, String cpu, String ram, String hdd, String vga, String deskripsi, String imageUrl, boolean isGameDewasa) {
+    public Game(String nama, String cpu, int ram, int hdd, String vga, String deskripsi, String imageUrl, boolean isGameDewasa) {
         this.nama = nama;
         this.cpu = cpu;
         this.ram = ram;
@@ -69,19 +69,19 @@ public class Game implements Serializable {
         this.cpu = cpu;
     }
 
-    public String getRam() {
+    public int getRam() {
         return ram;
     }
 
-    public void setRam(String ram) {
+    public void setRam(int ram) {
         this.ram = ram;
     }
 
-    public String getHdd() {
+    public int getHdd() {
         return hdd;
     }
 
-    public void setHdd(String hdd) {
+    public void setHdd(int hdd) {
         this.hdd = hdd;
     }
 
@@ -119,16 +119,26 @@ public class Game implements Serializable {
 
     public static List<Game> sampleGameList() {
         List<Game> list = new ArrayList<Game>();
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/236390/header.jpg").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg").setIsGameDewasa(true).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(true).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/552990/header.jpg").setIsGameDewasa(false).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(true).createGame());
-        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam("2 GB").setHdd("16 GB").setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(true).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(4).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/236390/header.jpg").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(8).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg").setIsGameDewasa(true).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(16).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(true).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/552990/header.jpg").setIsGameDewasa(false).createGame());
+        list.add(new GameBuilder().setNama("League of Legends").setCpu("Intel Core i3-530 / AMD A6-3650").setRam(2).setHdd(16).setVga("any").setDeskripsi("LOL").setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png").setIsGameDewasa(true).createGame());
+        list.add(
+                new GameBuilder()
+                .setNama("League of Legends")
+                .setCpu("Intel Core i3-530 / AMD A6-3650")
+                .setRam(2)
+                .setHdd(16)
+                .setVga("RTX 69420")
+                .setDeskripsi("LOL adalah lol")
+                .setImageUrl("https://www.leagueoflegends.com/static/logo-1200-04b3cefafba917c9c571f9244fd28a1e.png")
+                .setIsGameDewasa(true)
+                .createGame());
         return list;
     }
 }

@@ -91,7 +91,8 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 .stream()
                 .filter(
                 game ->
-                        game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
+                        game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim()) &&
+                        game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
                 )
                 .collect(Collectors.toList());
     }

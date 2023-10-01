@@ -34,10 +34,12 @@ public class SpekInputActivity extends AppCompatActivity {
     public void onClick(View view) {
         if(view.getId() == binding.btnCariGame.getId()) {
             String cpu = binding.edCpu.getText().toString();
+            String ram = binding.edRam.getText().toString();
             // TODO : LANJUTIN BUAT AMBIL INPUTAN YANG LAIN...
             //LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
 
             spekData.put(KeyUtil.KEY_CPU, cpu);
+            spekData.put(KeyUtil.KEY_RAM, ram);
             // TODO : LANJUTIN...
 
             //TODO GANTI PARAMETER SUPAYA NERIMA RAM, HDD, VGA

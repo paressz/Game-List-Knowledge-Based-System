@@ -3,8 +3,8 @@ package com.farez.projectsbp.data.model;
 public class GameBuilder {
     private String nama;
     private String cpu;
-    private String ram;
-    private String hdd;
+    private int ram;
+    private int hdd;
     private String vga;
     private String deskripsi;
     private String imageUrl;
@@ -20,12 +20,12 @@ public class GameBuilder {
         return this;
     }
 
-    public GameBuilder setRam(String ram) {
+    public GameBuilder setRam(int ram) {
         this.ram = ram;
         return this;
     }
 
-    public GameBuilder setHdd(String hdd) {
+    public GameBuilder setHdd(int hdd) {
         this.hdd = hdd;
         return this;
     }
