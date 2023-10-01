@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
 
@@ -55,8 +56,11 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 handleSearch();
                 filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
                 listGameAdapter.setGameList(filteredList);
+                if (filteredList.isEmpty()) binding.tvNoGame.setVisibility(View.VISIBLE);
+                else binding.tvNoGame.setVisibility(View.GONE);
             }
             else {
+                binding.tvNoGame.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "ERROR : list game bernilai null", Toast.LENGTH_SHORT).show();
             }
         });
@@ -72,9 +76,11 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         if (value) {
             filteredList = gameList;
             listGameAdapter.setGameList(filteredList);
+            checkIsListEmpty();
         } else {
             filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
             listGameAdapter.setGameList(filteredList);
+            checkIsListEmpty();
         }
     }
 // method buat handle search berdasarkan
@@ -91,9 +97,22 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 .stream()
                 .filter(
                 game ->
-                        game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim()) &&
+                        game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
+                                &&
                         game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
+//                                &&
+//                        game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
+//                                &&
+//                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim())
                 )
                 .collect(Collectors.toList());
+    }
+    void checkIsListEmpty() {
+        if (filteredList.isEmpty()) {
+            binding.tvNoGame.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.tvNoGame.setVisibility(View.GONE);
+        }
     }
 }
