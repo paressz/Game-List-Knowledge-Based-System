@@ -29,6 +29,7 @@ public class SpekInputActivity extends AppCompatActivity {
         binding = ActivitySpekInputBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         binding.btnCariGame.setOnClickListener(this::onClick);
+        binding.imageView2.setOnClickListener(this::onClick);
     }
 
     public void onClick(View view) {
@@ -44,6 +45,10 @@ public class SpekInputActivity extends AppCompatActivity {
 
             //TODO GANTI PARAMETER SUPAYA NERIMA RAM, HDD, VGA
             checkEmptyField(cpu, cpu, cpu, cpu);
+        } else if (view.getId() == binding.imageView2.getId()) {
+            Intent intent = new Intent(this, ListGameActivity.class);
+            intent.putExtra("ALL", true);
+            startActivity(intent);
         }
     }
 

@@ -33,13 +33,14 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         super.onCreate(savedInstanceState);
         binding = ActivityListGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        boolean showAllGames = false;
+        showAllGames = getIntent().getBooleanExtra("ALL", false);
         viewModel = new ViewModelProvider.AndroidViewModelFactory(
                 this.getApplication())
                 .create(ListGameViewModel.class
                 );
         rv = binding.rv;
-        getGamesFromDatabase();
+        getGamesFromDatabase(showAllGames);
         listGameAdapter = new ListGameAdapter();
         rv.setAdapter(listGameAdapter);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
@@ -49,19 +50,25 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
 
     }
 
-    void getGamesFromDatabase() {
+    void getGamesFromDatabase(boolean showAllGames) {
         viewModel.getGame().observe(this, games -> {
-            if (games != null) {
-                gameList = games;
-                handleSearch();
-                filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
-                listGameAdapter.setGameList(filteredList);
-                if (filteredList.isEmpty()) binding.tvNoGame.setVisibility(View.VISIBLE);
-                else binding.tvNoGame.setVisibility(View.GONE);
+            if (!showAllGames) {
+                if (games != null) {
+                    gameList = games;
+                    handleSearch();
+                    filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
+                    listGameAdapter.setGameList(filteredList);
+                    if (filteredList.isEmpty()) binding.tvNoGame.setVisibility(View.VISIBLE);
+                    else binding.tvNoGame.setVisibility(View.GONE);
+                }
+                else {
+                    binding.tvNoGame.setVisibility(View.VISIBLE);
+                    Toast.makeText(this, "ERROR : list game bernilai null", Toast.LENGTH_SHORT).show();
+                }
             }
             else {
-                binding.tvNoGame.setVisibility(View.VISIBLE);
-                Toast.makeText(this, "ERROR : list game bernilai null", Toast.LENGTH_SHORT).show();
+                gameList = games;
+                listGameAdapter.setGameList(gameList);
             }
         });
     }
@@ -102,7 +109,7 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                         game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
 //                                &&
 //                        game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
-//                                &&
+//                                ||
 //                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim())
                 )
                 .collect(Collectors.toList());
