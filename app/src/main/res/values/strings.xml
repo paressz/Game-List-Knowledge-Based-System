@@ -10,7 +10,7 @@
     <string name="hdd_space_text">10 TB free space</string>
     <string name="cpu_text">CPU</string>
     <string name="ram_text">RAM</string>
-    <string name="gpu_text">GPU/VGA</string>
+    <string name="gpu_text">GPU</string>
     <string name="hdd_text">Storage</string>
 
 

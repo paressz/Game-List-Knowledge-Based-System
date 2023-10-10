@@ -19,6 +19,8 @@ public class DetailGameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //BUAT TERIMA DATA YANG KEY-NYA DARI KeyUtil.KEY_GAME_INTENT
+        game = (Game) getIntent().getSerializableExtra(KeyUtil.KEY_GAME_INTENT);
         setupBinding();
     }
 
@@ -29,17 +31,12 @@ public class DetailGameActivity extends AppCompatActivity {
     }
 
     private void getDataFromListGameActivity() {
-        //BUAT TERIMA DATA YANG KEY-NYA DARI KeyUtil.KEY_GAME_INTENT
-        game = (Game) getIntent().getSerializableExtra(KeyUtil.KEY_GAME_INTENT);
-
-        /*
-        TODO : LANJUT TAMPILIN SISA DATA YANG BELOM DITAMPILIN
-        LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
-         */
         binding.tvNamaGame.setText(game.getNama());
-        //...
-        //...
-        //...
+        binding.tvDeskripsiGame.setText(game.getDeskripsi());
+        binding.tvSpekCpu.setText(game.getCpu());
+        binding.tvSpekRam.setText(toString(game.getRam()) + " GB");
+        binding.tvSpekGpu.setText(game.getVga());
+        binding.tvSpekHdd.setText(toString(game.getHdd())+ " GB");
 
         //INI BUAT LOAD IMAGE DARI URL KE IMAGEVIEW
         Glide.with(this)
@@ -48,4 +45,5 @@ public class DetailGameActivity extends AppCompatActivity {
                 .transform(new RoundedCorners(12))
                 .into(binding.ivGambarGame);
     }
+    private String toString(int n) {return ""+n;}
 }

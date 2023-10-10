@@ -33,8 +33,7 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         super.onCreate(savedInstanceState);
         binding = ActivityListGameBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        boolean showAllGames = false;
-        showAllGames = getIntent().getBooleanExtra("ALL", false);
+        boolean showAllGames = getIntent().getBooleanExtra("ALL", false);
         viewModel = new ViewModelProvider.AndroidViewModelFactory(
                 this.getApplication())
                 .create(ListGameViewModel.class
@@ -107,10 +106,10 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                         game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
                                 &&
                         game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
-//                                &&
-//                        game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
-//                                ||
-//                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim())
+                                &&
+                        game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
+                                ||
+                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim())
                 )
                 .collect(Collectors.toList());
     }
