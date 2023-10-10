@@ -4,8 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
 
@@ -27,7 +25,6 @@ public class SpekInputActivity extends AppCompatActivity {
         handleBinding();
         Toast toast = Toast.makeText(this, "Sentuh logo untuk menampilkan semua game", Toast.LENGTH_SHORT);
         toast.show();
-
     }
     void handleBinding() {
         binding = ActivitySpekInputBinding.inflate(getLayoutInflater());
@@ -42,20 +39,19 @@ public class SpekInputActivity extends AppCompatActivity {
             String ram = binding.edRam.getText().toString();
             String hdd = binding.edStorage.getText().toString();
             String vga = binding.edVga.getText().toString();
-            //LIAT ID VIEW/KOMPONEN DI SRC/MAIN/RES/LAYOUT/[Activity Ini]
-
-            spekData.put(KeyUtil.KEY_CPU, cpu);
-            spekData.put(KeyUtil.KEY_RAM, ram);
-            spekData.put(KeyUtil.KEY_HDD, hdd);
-            spekData.put(KeyUtil.KEY_VGA, vga);
-
-            //TODO GANTI PARAMETER SUPAYA NERIMA RAM, HDD, VGA
+            putAllDataTOHashMap(cpu, ram, hdd, vga);
             checkEmptyField(cpu, ram, hdd, vga);
         } else if (view.getId() == binding.imageView2.getId()) {
             Intent intent = new Intent(this, ListGameActivity.class);
             intent.putExtra("ALL", true);
             startActivity(intent);
         }
+    }
+    void putAllDataTOHashMap(String cpu, String ram, String hdd, String vga) {
+        spekData.put(KeyUtil.KEY_CPU, cpu);
+        spekData.put(KeyUtil.KEY_RAM, ram);
+        spekData.put(KeyUtil.KEY_HDD, hdd);
+        spekData.put(KeyUtil.KEY_VGA, vga);
     }
 
     void checkEmptyField(String cpu, String ram, String hdd, String vga) {

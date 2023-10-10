@@ -38,15 +38,18 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 this.getApplication())
                 .create(ListGameViewModel.class
                 );
-        rv = binding.rv;
         getGamesFromDatabase(showAllGames);
+        setupRecyclerView();
+        binding.switch1.setOnCheckedChangeListener(this);
+
+    }
+
+    void setupRecyclerView() {
+        rv = binding.rv;
         listGameAdapter = new ListGameAdapter();
         rv.setAdapter(listGameAdapter);
         rv.setLayoutManager(new GridLayoutManager(this, 2));
         rv.setHasFixedSize(false);
-
-        binding.switch1.setOnCheckedChangeListener(this);
-
     }
 
     void getGamesFromDatabase(boolean showAllGames) {
@@ -75,18 +78,15 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean value) {
         if (compoundButton.getId() == binding.switch1.getId()) {
-            handleSwitch(value);
-        }
-    }
-    void handleSwitch(boolean value) {
-        if (value) {
-            filteredList = gameList;
-            listGameAdapter.setGameList(filteredList);
-            checkIsListEmpty();
-        } else {
-            filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
-            listGameAdapter.setGameList(filteredList);
-            checkIsListEmpty();
+            if (value) {
+                filteredList = gameList;
+                listGameAdapter.setGameList(filteredList);
+                checkIsListEmpty();
+            } else {
+                filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
+                listGameAdapter.setGameList(filteredList);
+                checkIsListEmpty();
+            }
         }
     }
 // method buat handle search berdasarkan
