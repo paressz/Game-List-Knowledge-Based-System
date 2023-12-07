@@ -247,7 +247,7 @@ public class Game implements Serializable {
                         .setVga(" GeForce GTX 1060 6GB / Radeon RX 580 8GB / Arc A380  / GeForce GTX 1060 6GB / Radeon RX 580 8GB / Arc A380")
                         .setDeskripsi("Cyberpunk 2077 adalah RPG aksi petualangan dunia terbuka yang berlatar masa depan gelap Night City, kota metropolitan berbahaya yang terobsesi dengan kekuatan, glamor, dan modifikasi tubuh tanpa henti.")
                         .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header_alt_assets_2.jpg?t=1695308476")
-                        .setIsGameDewasa(false)
+                        .setIsGameDewasa(true)
                 .createGame());
         list.add(new GameBuilder()
                         .setNama("ELDEN RING")
@@ -320,7 +320,7 @@ public class Game implements Serializable {
                         .setVga("Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870")
                         .setDeskripsi("Anda adalah Geralt dari Rivia, pembunuh monster tentara bayaran. Sebelum Anda berdiri di benua yang dilanda perang dan dipenuhi monster, Anda dapat menjelajah sesuka hati. Kontrak Anda saat ini? Melacak Ciri — Anak Nubuat, senjata hidup yang dapat mengubah bentuk dunia.")
                         .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg?t=1693590732")
-                        .setIsGameDewasa(false).createGame());
+                        .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("New World")
                         .setCpu("Intel Core i5-10500 3.10GHz / AMD Ryzen 3 3300X")
@@ -356,7 +356,7 @@ public class Game implements Serializable {
                         .setVga("Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB")
                         .setDeskripsi("Pemenang lebih dari 175 Game of the Year Awards dan penerima lebih dari 250 skor sempurna, RDR2 adalah kisah epik penjahat Arthur Morgan dan geng Van der Linde yang terkenal, dalam pelarian melintasi Amerika pada awal zaman modern. Juga termasuk akses ke dunia kehidupan bersama Red!")
                         .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg?t=1695140956")
-                        .setIsGameDewasa(false).createGame());
+                        .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Resident Evil 4")
                         .setCpu("AMD Ryzen 3 1200/Intel Core i5-7500")
@@ -365,7 +365,7 @@ public class Game implements Serializable {
                         .setVga("AMD Radeon RX 560 with 4GB VRAM / NVIDIA GeForce GTX 1050 Ti with 4GB VRAM")
                         .setDeskripsi("Kelangsungan hidup hanyalah permulaan. Enam tahun telah berlalu sejak bencana biologis di Raccoon City. Leon S. Kennedy, salah satu yang selamat, melacak putri presiden yang diculik ke sebuah desa terpencil di Eropa, di mana ada sesuatu yang tidak beres dengan penduduk setempat.")
                         .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header_alt_assets_0.jpg?t=1696242724")
-                        .setIsGameDewasa(false).createGame());
+                        .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Marvel’s Spider-Man: Miles Morales")
                         .setCpu("Intel Core i3-4160 3.6 GHz / AMD equivalent")
@@ -382,8 +382,8 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("AMD Radeon RX 470 (4 GB) / AMD Radeon RX 6500 XT (4 GB) / NVIDIA GeForce GTX 970 (4 GB) / NVIDIA GeForce GTX 1050 Ti (4 GB)")
                         .setDeskripsi("Rasakan kisah emosional dan karakter tak terlupakan dalam The Last of Us™, pemenang lebih dari 200 penghargaan Game of the Year.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg?t=1695758297")
-                        .setIsGameDewasa(false).createGame());
+                        .setImageUrl("https://cdn.cloudflare.sSteamstatic.com/steam/apps/1888930/header.jpg?t=1695758297")
+                        .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Sekiro : Shadows Die Twice - GOTY Edition")
                         .setCpu("Intel Core i3-2100 / AMD FX-6300")
