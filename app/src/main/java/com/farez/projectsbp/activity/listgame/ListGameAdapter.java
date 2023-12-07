@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.farez.projectsbp.R;
 import com.farez.projectsbp.activity.detailgameactivity.DetailGameActivity;
@@ -26,8 +25,7 @@ public class ListGameAdapter extends RecyclerView.Adapter<ListGameAdapter.GameVi
     @Override
     public GameViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         RvItemGameBinding binding = RvItemGameBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
-        GameViewHolder gameViewHolder = new GameViewHolder(binding);
-        return gameViewHolder;
+        return new GameViewHolder(binding);
     }
 
     @Override
@@ -54,6 +52,7 @@ public class ListGameAdapter extends RecyclerView.Adapter<ListGameAdapter.GameVi
 
     class GameViewHolder extends RecyclerView.ViewHolder {
         RvItemGameBinding binding;
+
         public GameViewHolder(RvItemGameBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
