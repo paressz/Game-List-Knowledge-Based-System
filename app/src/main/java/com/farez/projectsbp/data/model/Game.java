@@ -118,7 +118,8 @@ public class Game implements Serializable {
     }
 
     public static List<Game> sampleGameList() {
-        List<Game> list = new ArrayList<Game>();
+        List<Game> list = new ArrayList<>();
+        String steamUrl  = "https://cdn.cloudflare.steamstatic.com/steam/apps/";
         list.add(new GameBuilder()
                 .setNama("League of Legends")
                 .setCpu("Intel Core i3-530 / AMD A6-3650")
@@ -137,7 +138,7 @@ public class Game implements Serializable {
                 .setDeskripsi("For over two decades, Counter-Strike has offered an elite competitive experience, " +
                         "one shaped by millions of players from across the globe. And now the next chapter in the CS " +
                         "story is about to begin. This is Counter-Strike 2.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg?t=1696359298")
+                .setImageUrl(steamUrl + "730/header.jpg?t=1696359298")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("The Sims™ 4")
@@ -146,7 +147,7 @@ public class Game implements Serializable {
                 .setHdd(26)
                 .setVga("Any GPU type but need at least 128mb of vram")
                 .setDeskripsi("Play with life and discover the possibilities. Unleash your imagination and create a world of Sims that’s wholly unique. Explore and customize every detail from Sims to homes–and much more.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1222670/header.jpg")
+                .setImageUrl(steamUrl + "1222670/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("Apex Legends™")
@@ -158,7 +159,7 @@ public class Game implements Serializable {
                         " Master an ever-growing roster of legendary characters with powerful abilities, and " +
                         "experience strategic squad play and innovative gameplay in the next evolution of Hero Shooter" +
                         " and Battle Royale.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1172470/header.jpg")
+                .setImageUrl(steamUrl + "1172470/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("Team Fortress 2")
@@ -168,7 +169,7 @@ public class Game implements Serializable {
                 .setVga("Any GPU type but need at least 512gb of vram")
                 .setDeskripsi("Nine distinct classes provide a broad range of tactical abilities and personalities. " +
                         "Constantly updated with new game modes, maps, equipment and, most importantly, hats!")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/440/header.jpg")
+                .setImageUrl(steamUrl + "440/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("PUBG: BATTLEGROUNDS")
@@ -181,7 +182,7 @@ public class Game implements Serializable {
                         "standing across various, diverse Battlegrounds.\n" +
                         "Squad up and join the Battlegrounds for the original Battle Royale experience that only " +
                         "PUBG: BATTLEGROUNDS can offer.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/578080/header.jpg")
+                .setImageUrl(steamUrl + "578080/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("War Thunder")
@@ -193,7 +194,7 @@ public class Game implements Serializable {
                         "dedicated to aviation, armoured vehicles, and naval craft, from the early 20th century to the" +
                         " most advanced modern combat units. Join now and take part in major battles on land, in the " +
                         "air, and at sea.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/236390/header.jpg")
+                .setImageUrl(steamUrl + "236390/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("World of Warships")
@@ -202,7 +203,7 @@ public class Game implements Serializable {
                 .setHdd(61)
                 .setVga("NVIDIA® GeForce® GT 640, AMD Radeon™ R7 240, Intel® HD 4000")
                 .setDeskripsi("Immerse yourself in thrilling naval battles and assemble an armada of over 600 ships from the first half of the 20th century — from stealthy destroyers to gigantic battleships. Change the look of your ship, choose upgrades to suit your play style, and go into battle with other players!")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/552990/header.jpg")
+                .setImageUrl(steamUrl + "552990/header.jpg")
                 .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                 .setNama("GTA V")
@@ -213,7 +214,7 @@ public class Game implements Serializable {
                 .setDeskripsi("Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los " +
                         "Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the " +
                         "game running at 60 frames per second.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg")
+                .setImageUrl(steamUrl + "271590/header.jpg")
                 .setIsGameDewasa(true).createGame());
         list.add(
                 new GameBuilder()
@@ -225,7 +226,7 @@ public class Game implements Serializable {
                 .setDeskripsi("Then, there was fire. Re-experience the critically acclaimed, genre-defining game that " +
                         "started it all. Beautifully remastered, return to Lordran in stunning high-definition detail " +
                         "running at 60fps.")
-                .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/570940/header.jpg")
+                .setImageUrl(steamUrl + "570940/header.jpg")
                 .setIsGameDewasa(false)
                 .createGame());
         list.add(
@@ -236,7 +237,7 @@ public class Game implements Serializable {
                         .setHdd(15)
                         .setVga("Nvidia GTX 1060 3GB/ AMD RX 470 4GB/ Intel UHD graphics 630")
                         .setDeskripsi("No Man's Sky adalah game tentang eksplorasi dan kelangsungan hidup di alam semesta yang dihasilkan secara prosedural tanpa batas.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/275850/header.jpg?t=1692895292")
+                        .setImageUrl(steamUrl + "275850/header.jpg?t=1692895292")
                         .setIsGameDewasa(false)
                         .createGame());
         list.add(new GameBuilder()
@@ -246,7 +247,7 @@ public class Game implements Serializable {
                         .setHdd(70)
                         .setVga(" GeForce GTX 1060 6GB / Radeon RX 580 8GB / Arc A380  / GeForce GTX 1060 6GB / Radeon RX 580 8GB / Arc A380")
                         .setDeskripsi("Cyberpunk 2077 adalah RPG aksi petualangan dunia terbuka yang berlatar masa depan gelap Night City, kota metropolitan berbahaya yang terobsesi dengan kekuatan, glamor, dan modifikasi tubuh tanpa henti.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header_alt_assets_2.jpg?t=1695308476")
+                        .setImageUrl(steamUrl + "1091500/header_alt_assets_2.jpg?t=1695308476")
                         .setIsGameDewasa(true)
                 .createGame());
         list.add(new GameBuilder()
@@ -256,7 +257,7 @@ public class Game implements Serializable {
                         .setHdd(60)
                         .setVga(" NVIDIA GEFORCE GTX 1060 3 GB / AMD RADEON RX 580 4 GB")
                         .setDeskripsi("RPG AKSI FANTASI BARU. Bangkit, Ternoda, dan dibimbing oleh rahmat untuk mengacungkan kekuatan Cincin Elden dan menjadi Raja Elden di Negeri Antara.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg?t=1683618443")
+                        .setImageUrl(steamUrl + "1245620/header.jpg?t=1683618443")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Forza Motorsport")
@@ -265,7 +266,7 @@ public class Game implements Serializable {
                         .setHdd(130)
                         .setVga("NVidia GTX 1060 / AMD RX 5500 XT")
                         .setDeskripsi("Kalahkan kompetisi dalam karier yang serba baru. Balapan teman Anda dalam acara multipemain yang dinilai. Bersaing dengan lebih dari 500 mobil di trek terkenal di dunia dengan AI mutakhir, fisika canggih, serta strategi ban dan bahan bakar.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/2440510/header_alt_assets_1.jpg?t=1696625580")
+                        .setImageUrl(steamUrl + "2440510/header_alt_assets_1.jpg?t=1696625580")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Hunt: Showdown")
@@ -274,7 +275,7 @@ public class Game implements Serializable {
                         .setHdd(50)
                         .setVga("NVIDIA GeForce GTX 660 TI / AMD Radeon R7 370")
                         .setDeskripsi("Hunt: Showdown adalah game tembak-menembak orang pertama PvPvE taktis dan berisiko tinggi. Berburu hadiah di Bayou yang penuh, bunuh monster-monster mimpi buruk, dan kalahkan pemburu pesaing - sendirian atau berkelompok - dengan mempertaruhkan kemuliaan, perlengkapan,")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/594650/header_alt_assets_19.jpg?t=1696522186")
+                        .setImageUrl(steamUrl + "594650/header_alt_assets_19.jpg?t=1696522186")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Mortal Kombat 1")
@@ -283,7 +284,7 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("Nvidia GeForce GTX 980 / AMD Radeon RX 470 / Intel Arc A750")
                         .setDeskripsi("Temukan Alam Semesta Mortal Kombat yang terlahir kembali yang diciptakan oleh Dewa Api Liu Kang. Mortal Kombat 1 mengantarkan era baru dari franchise ikonik dengan sistem pertarungan, mode permainan, dan korban jiwa baru!")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/header.jpg?t=1696436825")
+                        .setImageUrl(steamUrl + "1971870/header.jpg?t=1696436825")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Rust")
@@ -292,7 +293,7 @@ public class Game implements Serializable {
                         .setHdd(25)
                         .setVga("GTX 670 2GB / AMD R9 280")
                         .setDeskripsi("Satu-satunya tujuan di Rust adalah untuk bertahan hidup. Semuanya ingin Anda mati - satwa liar di pulau itu dan penghuni lainnya, lingkungan, dan para penyintas lainnya. Lakukan apa pun untuk bertahan satu malam lagi.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/252490/header.jpg?t=1693652810")
+                        .setImageUrl(steamUrl + "252490/header.jpg?t=1693652810")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Lies of P")
@@ -301,7 +302,7 @@ public class Game implements Serializable {
                         .setHdd(50)
                         .setVga("AMD Radeon RX 560 4GB / NVIDIA GeForce GTX 960 4GB")
                         .setDeskripsi("Lies of P adalah film berjiwa mendebarkan yang mengambil kisah Pinokio, memutar kepalanya, dan menempatkannya dengan latar belakang era Belle Epoque yang sangat elegan.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1627720/header.jpg?t=1696396720")
+                        .setImageUrl(steamUrl + "1627720/header.jpg?t=1696396720")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("EA SPORTS FC 24")
@@ -310,7 +311,7 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("NVIDIA GeForce GTX 1050 Ti 4GB / AMD Radeon RX 570 4GB")
                         .setDeskripsi("EA SPORTS FC 24 menyambut Anda di The World's Game: pengalaman sepak bola paling nyata yang pernah ada dengan HyperMotionV, PlayStyles yang dioptimalkan oleh Opta, dan Frostbite Engine yang disempurnakan.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/2195250/header.jpg?t=1696300539")
+                        .setImageUrl(steamUrl + "2195250/header.jpg?t=1696300539")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("The Witcher 3: Wild Hunt")
@@ -319,7 +320,7 @@ public class Game implements Serializable {
                         .setHdd(50)
                         .setVga("Nvidia GPU GeForce GTX 660 / AMD GPU Radeon HD 7870")
                         .setDeskripsi("Anda adalah Geralt dari Rivia, pembunuh monster tentara bayaran. Sebelum Anda berdiri di benua yang dilanda perang dan dipenuhi monster, Anda dapat menjelajah sesuka hati. Kontrak Anda saat ini? Melacak Ciri — Anak Nubuat, senjata hidup yang dapat mengubah bentuk dunia.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg?t=1693590732")
+                        .setImageUrl(steamUrl + "292030/header.jpg?t=1693590732")
                         .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("New World")
@@ -328,7 +329,7 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("NVIDIA GeForce GTX 1060 3GB / AMD Radeon RX 590")
                         .setDeskripsi("Jelajahi MMO dunia terbuka yang mendebarkan yang penuh dengan bahaya dan peluang di mana Anda akan menempa takdir baru di pulau supernatural Aeternum.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/header.jpg?t=1695753023")
+                        .setImageUrl(steamUrl + "1063730/header.jpg?t=1695753023")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Stumble Guys")
@@ -337,7 +338,7 @@ public class Game implements Serializable {
                         .setHdd(1)
                         .setVga("AMD Radeon HD 7750 / NVIDIA Geforce GTX 2600")
                         .setDeskripsi("Berlomba melalui rintangan melawan hingga 32 pemain online. Berlari, lompat, dan lari ke garis finis hingga pemain terbaik merebut mahkota!")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1677740/header.jpg?t=1696588681")
+                        .setImageUrl(steamUrl + "1677740/header.jpg?t=1696588681")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("HOT WHEELS UNLEASHED™ 2 - Turbocharged")
@@ -346,7 +347,7 @@ public class Game implements Serializable {
                         .setHdd(30)
                         .setVga("GeForce GTX 1050 / Radeon RX 460")
                         .setDeskripsi("Lomba mobil tercanggih telah kembali dan membawa keseruan ke level selanjutnya! Lebih dari 130 mobil dengan montir baru dan tipe kendaraan lebih banyak! Bangun jalurmu dengan lingkungan baru yang menakjubkan dan mode berbeda untuk bergembira secara daring dan luring!")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/2051120/header.jpg?t=1694793100")
+                        .setImageUrl(steamUrl + "2051120/header.jpg?t=1694793100")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Red Dead Redemption 2")
@@ -355,7 +356,7 @@ public class Game implements Serializable {
                         .setHdd(150)
                         .setVga("Nvidia GeForce GTX 1060 6GB / AMD Radeon RX 480 4GB")
                         .setDeskripsi("Pemenang lebih dari 175 Game of the Year Awards dan penerima lebih dari 250 skor sempurna, RDR2 adalah kisah epik penjahat Arthur Morgan dan geng Van der Linde yang terkenal, dalam pelarian melintasi Amerika pada awal zaman modern. Juga termasuk akses ke dunia kehidupan bersama Red!")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg?t=1695140956")
+                        .setImageUrl(steamUrl + "1174180/header.jpg?t=1695140956")
                         .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Resident Evil 4")
@@ -364,7 +365,7 @@ public class Game implements Serializable {
                         .setHdd(60)
                         .setVga("AMD Radeon RX 560 with 4GB VRAM / NVIDIA GeForce GTX 1050 Ti with 4GB VRAM")
                         .setDeskripsi("Kelangsungan hidup hanyalah permulaan. Enam tahun telah berlalu sejak bencana biologis di Raccoon City. Leon S. Kennedy, salah satu yang selamat, melacak putri presiden yang diculik ke sebuah desa terpencil di Eropa, di mana ada sesuatu yang tidak beres dengan penduduk setempat.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header_alt_assets_0.jpg?t=1696242724")
+                        .setImageUrl(steamUrl + "2050650/header_alt_assets_0.jpg?t=1696242724")
                         .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Marvel’s Spider-Man: Miles Morales")
@@ -373,7 +374,7 @@ public class Game implements Serializable {
                         .setHdd(75)
                         .setVga("NVIDIA GTX 950 / AMD Radeon RX 470")
                         .setDeskripsi("Setelah peristiwa Marvel's Spider-Man Remastered, remaja Miles Morales menyesuaikan diri dengan rumah barunya sambil mengikuti jejak mentornya, Peter Parker, sebagai Spider-Man baru. Ketika perebutan kekuasaan yang sengit mengancam untuk menghancurkan rumahnya")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/1817190/header.jpg?t=1695916167")
+                        .setImageUrl(steamUrl + "1817190/header.jpg?t=1695916167")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("The Last of Us Part I")
@@ -382,7 +383,7 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("AMD Radeon RX 470 (4 GB) / AMD Radeon RX 6500 XT (4 GB) / NVIDIA GeForce GTX 970 (4 GB) / NVIDIA GeForce GTX 1050 Ti (4 GB)")
                         .setDeskripsi("Rasakan kisah emosional dan karakter tak terlupakan dalam The Last of Us™, pemenang lebih dari 200 penghargaan Game of the Year.")
-                        .setImageUrl("https://cdn.cloudflare.sSteamstatic.com/steam/apps/1888930/header.jpg?t=1695758297")
+                        .setImageUrl(steamUrl + "1888930/header.jpg")
                         .setIsGameDewasa(true).createGame());
         list.add(new GameBuilder()
                         .setNama("Sekiro : Shadows Die Twice - GOTY Edition")
@@ -391,7 +392,7 @@ public class Game implements Serializable {
                         .setHdd(25)
                         .setVga("NVIDIA GeForce GTX 760 / AMD Radeon HD 7950")
                         .setDeskripsi("Game Terbaik Tahun Ini - The Game Awards 2019 Game Aksi Terbaik 2019 - IGN Ciptakan jalan cerdas Anda sendiri untuk membalas dendam dalam petualangan pemenang penghargaan dari pengembang FromSoftware, pencipta seri Bloodborne dan Dark Souls. Membalas dendam....")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/814380/header.jpg?t=1678991267")
+                        .setImageUrl(steamUrl + "814380/header.jpg?t=1678991267")
                         .setIsGameDewasa(false).createGame());
         list.add(new GameBuilder()
                         .setNama("Call of Duty: Black Ops III")
@@ -400,7 +401,7 @@ public class Game implements Serializable {
                         .setHdd(100)
                         .setVga("NVIDIA GeForce GTX 470 1GB / ATI Radeon HD 6970 1GB")
                         .setDeskripsi("Call of Duty®: Black Ops III Zombies Chronicles Edition mencakup game dasar lengkap ditambah perluasan konten Zombies Chronicles.")
-                        .setImageUrl("https://cdn.cloudflare.steamstatic.com/steam/apps/311210/header.jpg?t=1646763462")
+                        .setImageUrl(steamUrl + "311210/header.jpg?t=1646763462")
                         .setIsGameDewasa(false).createGame());
         return list;
     }
