@@ -69,7 +69,12 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 }
             } else {
                 gameList = games;
-                listGameAdapter.setGameList(gameList);
+                listGameAdapter.setGameList(
+                        gameList
+                                .stream()
+                                .filter(game -> !game.isGameDewasa())
+                                .collect(Collectors.toList())
+                );
             }
         });
     }
@@ -80,19 +85,20 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         if (compoundButton.getId() == binding.switch1.getId()) {
             if (value) {
                 filteredList = gameList;
-                listGameAdapter.setGameList(filteredList);
-                checkIsListEmpty();
             } else {
-                filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
-                listGameAdapter.setGameList(filteredList);
-                checkIsListEmpty();
+                filteredList = gameList
+                        .stream()
+                        .filter(game -> !game.isGameDewasa())
+                        .collect(Collectors.toList());
             }
+            listGameAdapter.setGameList(filteredList);
+            checkIsListEmpty();
         }
     }
 
     // method buat handle search berdasarkan
-// data cpu, ram, hdd, dan vga
-// yang diinput dari spekInputActivity
+    // data cpu, ram, hdd, dan vga
+    // yang diinput dari spekInputActivity
     void handleSearch() {
         Serializable spekData = getIntent().getSerializableExtra(KeyUtil.KEY_INTENT_SPEK);
         if (spekData != null) {
@@ -102,16 +108,16 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         }
         gameList = gameList
                 .stream()
-                .filter( game ->
-                                game.getCpu().toUpperCase().trim().contains(
-                                        keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
-                                        &&
-                                        game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
-                                        &&
-                                        game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
-                                        &&
-                                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim()
-                                        )
+                .filter(
+                            game ->
+                                game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
+                                &&
+                                game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
+                                &&
+                                game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
+                                &&
+                                game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim()
+                        )
                 )
                 .collect(Collectors.toList());
     }
