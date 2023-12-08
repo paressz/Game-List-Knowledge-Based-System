@@ -50,7 +50,7 @@ public class ListGameAdapter extends RecyclerView.Adapter<ListGameAdapter.GameVi
         return gameList.size();
     }
 
-    class GameViewHolder extends RecyclerView.ViewHolder {
+    static class GameViewHolder extends RecyclerView.ViewHolder {
         RvItemGameBinding binding;
 
         public GameViewHolder(RvItemGameBinding binding) {
@@ -60,8 +60,7 @@ public class ListGameAdapter extends RecyclerView.Adapter<ListGameAdapter.GameVi
     }
 
     public void setGameList(List<Game> gameList) {
-        this.gameList.clear();
-        this.gameList.addAll(gameList);
+        this.gameList = gameList;
         notifyDataSetChanged();
     }
 }
