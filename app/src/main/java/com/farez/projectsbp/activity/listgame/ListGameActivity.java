@@ -102,15 +102,16 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         }
         gameList = gameList
                 .stream()
-                .filter(
-                        game ->
-                                game.getCpu().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
+                .filter( game ->
+                                game.getCpu().toUpperCase().trim().contains(
+                                        keywordSearch.get(KeyUtil.KEY_CPU).toUpperCase().trim())
                                         &&
                                         game.getRam() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_RAM))
                                         &&
                                         game.getHdd() <= Integer.parseInt(keywordSearch.get(KeyUtil.KEY_HDD))
-                                        ||
-                                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim())
+                                        &&
+                                        game.getVga().toUpperCase().trim().contains(keywordSearch.get(KeyUtil.KEY_VGA).toUpperCase().trim()
+                                        )
                 )
                 .collect(Collectors.toList());
     }
@@ -125,7 +126,9 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
 
     @Override
     public void onClick(View view) {
-        onBackPressed();
+        if  (view.getId() == binding.imageView.getId()) {
+            finish();
+        }
     }
 
 }
