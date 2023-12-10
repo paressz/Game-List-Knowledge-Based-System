@@ -1,5 +1,7 @@
 package com.farez.projectsbp.activity.listgame;
 
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -49,7 +51,12 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
         rv = binding.rv;
         listGameAdapter = new ListGameAdapter();
         rv.setAdapter(listGameAdapter);
-        rv.setLayoutManager(new GridLayoutManager(this, 2));
+        Configuration configuration = getResources().getConfiguration();
+        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE ) {
+            rv.setLayoutManager(new GridLayoutManager(this, 4));
+        } else  {
+            rv.setLayoutManager(new GridLayoutManager(this, 2));
+        }
         rv.setHasFixedSize(false);
     }
 
