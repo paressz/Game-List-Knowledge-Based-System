@@ -1,7 +1,6 @@
 package com.farez.projectsbp.activity.listgame;
 
 import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
@@ -17,6 +16,7 @@ import com.farez.projectsbp.databinding.ActivityListGameBinding;
 import com.farez.projectsbp.util.KeyUtil;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -62,26 +62,20 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
 
     void getGamesFromDatabase(boolean showAllGames) {
         viewModel.getGame().observe(this, games -> {
-            if (!showAllGames) {
-                if (games != null) {
-                    gameList = games;
+            if(!games.isEmpty()) {
+                gameList = games;
+                if (!showAllGames) {
                     handleSearch();
                     filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
                     listGameAdapter.setGameList(filteredList);
-                    if (filteredList.isEmpty()) binding.tvNoGame.setVisibility(View.VISIBLE);
-                    else binding.tvNoGame.setVisibility(View.GONE);
+                    checkIsListEmpty();
                 } else {
-                    binding.tvNoGame.setVisibility(View.VISIBLE);
-                    Toast.makeText(this, "ERROR : list game bernilai null", Toast.LENGTH_SHORT).show();
+                    filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
+                    listGameAdapter.setGameList(filteredList);
                 }
             } else {
-                gameList = games;
-                listGameAdapter.setGameList(
-                        gameList
-                                .stream()
-                                .filter(game -> !game.isGameDewasa())
-                                .collect(Collectors.toList())
-                );
+                binding.tvNoGame.setVisibility(View.VISIBLE);
+                Toast.makeText(this, "ERROR : list game kosong", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -91,19 +85,15 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
     public void onCheckedChanged(CompoundButton compoundButton, boolean value) {
         if (compoundButton.getId() == binding.switch1.getId()) {
             if (value) {
-                filteredList = gameList;
+                listGameAdapter.setGameList(gameList);
             } else {
-                filteredList = gameList
-                        .stream()
-                        .filter(game -> !game.isGameDewasa())
-                        .collect(Collectors.toList());
+                listGameAdapter.setGameList(filteredList);
             }
-            listGameAdapter.setGameList(filteredList);
             checkIsListEmpty();
         }
     }
 
-    // method buat handle search berdasarkan
+    // filter gameList berdasarkan
     // data cpu, ram, hdd, dan vga
     // yang diinput dari spekInputActivity
     void handleSearch() {
