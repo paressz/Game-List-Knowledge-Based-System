@@ -40,42 +40,45 @@ public class ListGameActivity extends AppCompatActivity implements CompoundButto
                 this.getApplication())
                 .create(ListGameViewModel.class
                 );
-        getGamesFromDatabase(showAllGames);
         setupRecyclerView();
         binding.switch1.setOnCheckedChangeListener(this);
         binding.imageView.setOnClickListener(this);
-
+        getGamesFromDatabase(showAllGames);
     }
 
     void setupRecyclerView() {
         rv = binding.rv;
         listGameAdapter = new ListGameAdapter();
         rv.setAdapter(listGameAdapter);
-        Configuration configuration = getResources().getConfiguration();
-        if (configuration.orientation == Configuration.ORIENTATION_LANDSCAPE ) {
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
             rv.setLayoutManager(new GridLayoutManager(this, 4));
         } else  {
             rv.setLayoutManager(new GridLayoutManager(this, 2));
         }
-        rv.setHasFixedSize(false);
+        rv.setHasFixedSize(true);
     }
 
     void getGamesFromDatabase(boolean showAllGames) {
         viewModel.getGame().observe(this, games -> {
+            games.forEach(game -> {
+                //KALO DIHAPUS BAKALAN KABUR KE ELSE DULUAN KARENA PROSES INPUT DATA TERLALU LAMA
+            });
             if(!games.isEmpty()) {
                 gameList = games;
                 if (!showAllGames) {
                     handleSearch();
                     filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
                     listGameAdapter.setGameList(filteredList);
-                    checkIsListEmpty();
                 } else {
                     filteredList = gameList.stream().filter(game -> !game.isGameDewasa()).collect(Collectors.toList());
                     listGameAdapter.setGameList(filteredList);
                 }
+                binding.progressBar2.setVisibility(View.GONE);
             } else {
                 binding.tvNoGame.setVisibility(View.VISIBLE);
                 Toast.makeText(this, "ERROR : list game kosong", Toast.LENGTH_SHORT).show();
+                binding.progressBar2.setVisibility(View.GONE);
             }
         });
     }
