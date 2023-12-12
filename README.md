@@ -4,5 +4,6 @@ Aplikasi untuk menampilkan daftar game yang bisa dimainkan berdasarkan spesifika
 - [SVG Repo](https://www.svgrepo.com/)
 
 ## Credits
+- Achmad Farez Syafei           - Developer
 - Permadi Kustiyanto            - UI/UX Designer
 - Mostafa Esmaeil Zadeh Azad    - Data Miner
